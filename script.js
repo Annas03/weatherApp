@@ -1,4 +1,4 @@
-import api_key from './apiKey'
+// import api_key from './apiKey'
 
 let lat, lon, temp_unit, CityName
 CityName = 'london'
@@ -50,7 +50,7 @@ async function UpadateWeather(cityName){
 
 // Current Weather
 async function findCurrentWeather(cityName){
-    const res = await fetch('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid='+api_key+'&units='+temp_unit+'')
+    const res = await fetch('https://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=f186df2b07aa2ac941d346c89f0d10a9&units='+temp_unit+'')
     const data = await res.json()
     UpdateCurrentWeather(data)
 }
@@ -123,7 +123,7 @@ function getNewDate(suntime, timezone){
 
 // Daily Fourcast
 async function findDailyFourcast(latitude, longitude){
-    const res = await fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat='+latitude+'&lon='+longitude+'&cnt=6&appid='+api_key+'&units='+temp_unit)
+    const res = await fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat='+latitude+'&lon='+longitude+'&cnt=6&appid=f186df2b07aa2ac941d346c89f0d10a9&units='+temp_unit)
     const data = await res.json()
     UpdateDailyFourcast(data)
 }
@@ -148,7 +148,7 @@ function getDay(time,timezone){
 
 // Hourly Fourcast
 async function findHourlyForcast(latitude, longitude){
-    const res = await fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid=${api_key}&cnt=6&units=${temp_unit}`)
+    const res = await fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid=f186df2b07aa2ac941d346c89f0d10a9&cnt=6&units=${temp_unit}`)
     const data = await res.json()
     UpdateHourlyForcast(data)
 }
